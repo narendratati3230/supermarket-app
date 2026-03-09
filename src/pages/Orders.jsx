@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Orders.css';
@@ -27,13 +27,13 @@ export default function Orders() {
   const [cancellingId, setCancellingId] = useState(null);
   const [confirmCancel, setConfirmCancel] = useState(null);
 
-  const loadOrders = () => {
+  const loadOrders = useCallback(() => {
     const allOrders = JSON.parse(localStorage.getItem('freshmart_orders') || '[]');
     const userOrders = user ? allOrders.filter(o => o.userId === user.id) : [];
     setOrders(userOrders);
-  };
+  }, [user]);
 
-  useEffect(() => { loadOrders(); }, [user]);
+  useEffect(() => { loadOrders(); }, [loadOrders]);
 
   const handleCancelOrder = (orderId) => {
     setConfirmCancel(orderId);

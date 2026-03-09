@@ -6,6 +6,7 @@ import { ToastProvider } from './context/ToastContext';
 import Header from './components/Header';
 import CartSidebar from './components/CartSidebar';
 import Footer from './components/Footer';
+import AiChatbot from './components/AiChatbot';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
@@ -15,22 +16,15 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import './styles/globals.css';
 
-// Skip to main content for accessibility
 function SkipLink() {
   return (
     <a
       href="#main-content"
       style={{
-        position: 'absolute',
-        top: '-100px',
-        left: 0,
-        background: 'var(--green-primary)',
-        color: 'white',
-        padding: '8px 16px',
-        zIndex: 9999,
-        borderRadius: '0 0 8px 0',
-        fontWeight: 600,
-        fontSize: 14,
+        position: 'absolute', top: '-100px', left: 0,
+        background: 'var(--green-primary)', color: 'white',
+        padding: '8px 16px', zIndex: 9999,
+        borderRadius: '0 0 8px 0', fontWeight: 600, fontSize: 14,
         transition: 'top 0.2s'
       }}
       onFocus={e => { e.target.style.top = '0'; }}
@@ -60,6 +54,7 @@ function AppLayout() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
+      <AiChatbot />
     </>
   );
 }

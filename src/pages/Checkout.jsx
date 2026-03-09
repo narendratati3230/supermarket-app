@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useToastMsg } from '../context/ToastContext';
@@ -36,7 +36,6 @@ export default function Checkout() {
   const { items, total, clearCart } = useCart();
   const { user } = useAuth();
   const { addToast } = useToastMsg();
-  const navigate = useNavigate();
 
   const [step, setStep] = useState(1);
   const [delivery, setDelivery] = useState({
