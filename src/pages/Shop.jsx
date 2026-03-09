@@ -107,7 +107,7 @@ export default function Shop() {
                   className={`mobile-cat-chip${activeCategory === cat.id ? ' active' : ''}`}
                   onClick={() => handleCatChange(cat.id)}
                   role="listitem"
-                  aria-pressed={activeCategory === cat.id}
+                  data-active={activeCategory === cat.id}
                 >
                   <span aria-hidden="true">{cat.icon}</span> {cat.name}
                 </button>
